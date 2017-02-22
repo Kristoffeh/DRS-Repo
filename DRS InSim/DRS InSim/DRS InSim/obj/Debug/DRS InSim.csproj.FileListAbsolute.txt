@@ -37,3 +37,15 @@ C:\Users\Peter Pan\Documents\GitHub\DRS-Repo\DRS InSim\DRS InSim\DRS InSim\obj\D
 C:\Users\Peter Pan\Documents\GitHub\DRS-Repo\DRS InSim\DRS InSim\DRS InSim\obj\Debug\DRS_InSim.Form1.resources
 C:\Users\Peter Pan\Documents\GitHub\DRS-Repo\DRS InSim\DRS InSim\DRS InSim\obj\Debug\DRS_InSim.Properties.Resources.resources
 C:\Users\Peter Pan\Documents\GitHub\DRS-Repo\DRS InSim\DRS InSim\DRS InSim\obj\Debug\DRS InSim.csproj.GenerateResource.Cache
+c:\Apps\DRS Race Manager\DRS InSim\DRS InSim\DRS InSim\bin\Debug\DRS InSim.exe.config
+c:\Apps\DRS Race Manager\DRS InSim\DRS InSim\DRS InSim\obj\Debug\DRS InSim.exe
+c:\Apps\DRS Race Manager\DRS InSim\DRS InSim\DRS InSim\obj\Debug\DRS InSim.pdb
+c:\Apps\DRS Race Manager\DRS InSim\DRS InSim\DRS InSim\bin\Debug\DRS InSim.exe
+c:\Apps\DRS Race Manager\DRS InSim\DRS InSim\DRS InSim\bin\Debug\DRS InSim.pdb
+c:\Apps\DRS Race Manager\DRS InSim\DRS InSim\DRS InSim\bin\Debug\InSimDotNet.dll
+c:\Apps\DRS Race Manager\DRS InSim\DRS InSim\DRS InSim\bin\Debug\InSimDotNet.pdb
+c:\Apps\DRS Race Manager\DRS InSim\DRS InSim\DRS InSim\bin\Debug\InSimDotNet.xml
+c:\Apps\DRS Race Manager\DRS InSim\DRS InSim\DRS InSim\obj\Debug\DRS InSim.csprojResolveAssemblyReference.cache
+c:\Apps\DRS Race Manager\DRS InSim\DRS InSim\DRS InSim\obj\Debug\DRS_InSim.Form1.resources
+c:\Apps\DRS Race Manager\DRS InSim\DRS InSim\DRS InSim\obj\Debug\DRS_InSim.Properties.Resources.resources
+c:\Apps\DRS Race Manager\DRS InSim\DRS InSim\DRS InSim\obj\Debug\DRS InSim.csproj.GenerateResource.Cache
