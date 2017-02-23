@@ -983,7 +983,7 @@ _connections[conn.UCID].LapTime.Milliseconds.ToString().Remove(0, 1)), conn.UNam
                     W = 40,
                     T = 7,
                     L = 100,
-                    Text = "^3Navn: ^2" + _connections[UCID].PName + "^3"
+                    Text = "^3Navn: ^8" + _connections[UCID].PName
                 });
 
 
@@ -1011,7 +1011,7 @@ _connections[conn.UCID].LapTime.Milliseconds.ToString().Remove(0, 1)), conn.UNam
                     W = 40,
                     T = 13,
                     L = 100,
-                    Text = "^3Track: ^2" + TrackHelper.GetFullTrackName(TrackName)
+                    Text = "^3Track: ^7" + TrackHelper.GetFullTrackName(TrackName)
                 });
 
 

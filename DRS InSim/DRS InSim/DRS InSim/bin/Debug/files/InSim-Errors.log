@@ -1,8 +1,0 @@
-2/22/2017 1:48:17 PM: [17]  NCN - Exception: System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
-   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
-   at DRS_InSim.Form1.GetConnection(Byte PLID) in c:\Apps\DRS Race Manager\DRS InSim\DRS InSim\DRS InSim\Form1.cs:line 272
-   at DRS_InSim.Form1.NewPlayer(InSim insim, IS_NPL NPL) in c:\Apps\DRS Race Manager\DRS InSim\DRS InSim\DRS InSim\Form1.cs:line 480
-2/22/2017 2:40:05 PM: [9]  NCN - Exception: System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
-   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
-   at DRS_InSim.Form1.GetConnection(Byte PLID) in c:\Apps\DRS Race Manager\DRS InSim\DRS InSim\DRS InSim\Form1.cs:line 272
-   at DRS_InSim.Form1.NewPlayer(InSim insim, IS_NPL NPL) in c:\Apps\DRS Race Manager\DRS InSim\DRS InSim\DRS InSim\Form1.cs:line 480
