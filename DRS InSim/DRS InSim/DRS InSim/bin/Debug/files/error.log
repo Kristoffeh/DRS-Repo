@@ -1,3 +1,33 @@
 2/22/2017 5:55:20 PM: CNL - Exception: System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
    at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
    at DRS_InSim.Form1.ConnectionLeave(InSim insim, IS_CNL CNL) in c:\Apps\DRS Race Manager\DRS InSim\DRS InSim\DRS InSim\Form1.cs:line 600
+2/23/2017 9:13:55 PM: CNL - Exception: System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at DRS_InSim.Form1.ConnectionLeave(InSim insim, IS_CNL CNL) in C:\Users\Peter Pan\Documents\GitHub\DRS-Repo\DRS InSim\DRS InSim\DRS InSim\Form1.cs:line 600
+2/23/2017 9:47:20 PM: CNL - Exception: System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at DRS_InSim.Form1.ConnectionLeave(InSim insim, IS_CNL CNL) in C:\Users\Peter Pan\Documents\GitHub\DRS-Repo\DRS InSim\DRS InSim\DRS InSim\Form1.cs:line 600
+2/23/2017 11:25:22 PM: MCI - Exception: System.NullReferenceException: Object reference not set to an instance of an object.
+   at DRS_InSim.Form1.MultiCarInfo(InSim insim, IS_MCI mci) in C:\Users\Peter Pan\Documents\GitHub\DRS-Repo\DRS InSim\DRS InSim\DRS InSim\Form1.cs:line 631
+2/23/2017 11:32:10 PM: MCI - Exception: System.NullReferenceException: Object reference not set to an instance of an object.
+   at DRS_InSim.Form1.MultiCarInfo(InSim insim, IS_MCI mci) in C:\Users\Peter Pan\Documents\GitHub\DRS-Repo\DRS InSim\DRS InSim\DRS InSim\Form1.cs:line 631
+2/23/2017 11:43:16 PM: MCI - Exception: System.NullReferenceException: Object reference not set to an instance of an object.
+   at DRS_InSim.Form1.MultiCarInfo(InSim insim, IS_MCI mci) in C:\Users\Peter Pan\Documents\GitHub\DRS-Repo\DRS InSim\DRS InSim\DRS InSim\Form1.cs:line 632
+2/23/2017 11:47:02 PM: CNL - Exception: System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at DRS_InSim.Form1.ConnectionLeave(InSim insim, IS_CNL CNL) in C:\Users\Peter Pan\Documents\GitHub\DRS-Repo\DRS InSim\DRS InSim\DRS InSim\Form1.cs:line 608
+2/23/2017 11:50:57 PM: MCI - Exception: System.NullReferenceException: Object reference not set to an instance of an object.
+   at DRS_InSim.Form1.MultiCarInfo(InSim insim, IS_MCI mci) in C:\Users\Peter Pan\Documents\GitHub\DRS-Repo\DRS InSim\DRS InSim\DRS InSim\Form1.cs:line 632
+2/24/2017 12:01:56 AM: CNL - Exception: System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at DRS_InSim.Form1.ConnectionLeave(InSim insim, IS_CNL CNL) in C:\Users\Peter Pan\Documents\GitHub\DRS-Repo\DRS InSim\DRS InSim\DRS InSim\Form1.cs:line 608
+2/24/2017 12:15:55 AM: CNL - Exception: System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at DRS_InSim.Form1.ConnectionLeave(InSim insim, IS_CNL CNL) in C:\Users\Peter Pan\Documents\GitHub\DRS-Repo\DRS InSim\DRS InSim\DRS InSim\Form1.cs:line 608
+2/24/2017 12:16:18 AM: MCI - Exception: System.NullReferenceException: Object reference not set to an instance of an object.
+   at DRS_InSim.Form1.MultiCarInfo(InSim insim, IS_MCI mci) in C:\Users\Peter Pan\Documents\GitHub\DRS-Repo\DRS InSim\DRS InSim\DRS InSim\Form1.cs:line 632
+2/24/2017 12:18:03 AM: CNL - Exception: System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at DRS_InSim.Form1.ConnectionLeave(InSim insim, IS_CNL CNL) in C:\Users\Peter Pan\Documents\GitHub\DRS-Repo\DRS InSim\DRS InSim\DRS InSim\Form1.cs:line 608
+2/24/2017 12:18:18 AM: MCI - Exception: System.NullReferenceException: Object reference not set to an instance of an object.
+   at DRS_InSim.Form1.MultiCarInfo(InSim insim, IS_MCI mci) in C:\Users\Peter Pan\Documents\GitHub\DRS-Repo\DRS InSim\DRS InSim\DRS InSim\Form1.cs:line 632

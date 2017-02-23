@@ -32,6 +32,11 @@ namespace DRS_InSim
         public int ptsTHIRD;
         public int ptsFORTH;
 
+        public bool RaceFinished;
+
+        public bool PointSystem = true;
+        public int ScoreboardTick = 0;
+
         
 
         // MySQL Variables
@@ -64,8 +69,7 @@ namespace DRS_InSim
             public decimal TotalDistance;
             public bool KMHoverMPH;
             public int points;
-            public bool inStats;
-            public byte stage;
+            // public bool inStats;
 
             public int tempts;
 
@@ -73,13 +77,15 @@ namespace DRS_InSim
 
             // Laps
             public int LapsDone;
-            public System.TimeSpan LapTime;
+            public TimeSpan LapTime;
             public System.TimeSpan ERaceTime;
             public byte NumStops;
             public string CarName;
             public int Pitstops;
             public bool SentMSG;
             public bool Disqualified;
+
+            
 
             // Admin panel
             public bool inAP;
@@ -200,6 +206,7 @@ namespace DRS_InSim
             insim.Bind<IS_PIT>(Pitstop);
             insim.Bind<IS_HLV>(HotLapValidity);
             insim.Bind<IS_RES>(Result);
+            insim.Bind<IS_RST>(RaceStart);
 
             // Initialize InSim
             insim.Initialize(new InSimSettings
@@ -436,8 +443,6 @@ _connections[conn.UCID].LapTime.Seconds,
 _connections[conn.UCID].LapTime.Milliseconds.ToString().Remove(0, 1)), conn.UName);
 
                     }
-
-
                 }
 
                 conn.SentMSG = false;
@@ -455,18 +460,21 @@ _connections[conn.UCID].LapTime.Milliseconds.ToString().Remove(0, 1)), conn.UNam
             {
                 var conn = GetConnection(RES.PLID);
 
-                if (RES.Confirm == ConfirmationFlags.CONF_PENALTY_30)
+                if (PointSystem == true)
                 {
-                    insim.Send(conn.UCID, "^8You've been fined ^1-1 ^8points for ^230-SECOND PENALTY");
-                    conn.points -= 1;
-                    conn.Disqualified = true;
-                }
+                    if (RES.Confirm == ConfirmationFlags.CONF_PENALTY_30)
+                    {
+                        insim.Send(conn.UCID, "^8You've been fined ^1-1 ^8points for ^230-SECOND PENALTY");
+                        conn.points -= 1;
+                        conn.Disqualified = true;
+                    }
 
-                if (RES.Confirm == ConfirmationFlags.CONF_PENALTY_45)
-                {
-                    insim.Send(conn.UCID, "^8You've been fined ^1-4 ^8points for ^245-SECOND PENALTY");
-                    conn.points -= 4;
-                    conn.Disqualified = true;
+                    if (RES.Confirm == ConfirmationFlags.CONF_PENALTY_45)
+                    {
+                        insim.Send(conn.UCID, "^8You've been fined ^1-4 ^8points for ^245-SECOND PENALTY");
+                        conn.points -= 4;
+                        conn.Disqualified = true;
+                    }
                 }
             }
             catch (Exception e) { LogTextToFile("InSim-Errors", "[" + RES.PLID + "] " + " NCN - Exception: " + e, false); }
@@ -667,11 +675,6 @@ _connections[conn.UCID].LapTime.Milliseconds.ToString().Remove(0, 1)), conn.UNam
                 {
                     _connections[BFN.UCID].DisplaysOpen = false;
                 }
-
-                if (_connections[BFN.UCID].inStats == true)
-                {
-                    _connections[BFN.UCID].inStats = false;
-                }
             }
             catch (Exception e)
             { LogTextToFile("error", "[" + BFN.UCID + "] " + StringHelper.StripColors(_connections[BFN.UCID].PName) + "(" + _connections[BFN.UCID].UName + ") BFN - Exception: " + e, false); }
@@ -728,6 +731,136 @@ _connections[conn.UCID].LapTime.Milliseconds.ToString().Remove(0, 1)), conn.UNam
             }
             catch (Exception e)
             { LogTextToFile("error", "[PLL] " + StringHelper.StripColors(_connections[PLL.PLID].PName) + "(" + _connections[PLL.PLID].UName + ") PLL - Exception: " + e, false); }
+        }
+
+        // Player Leave
+        void RaceStart(InSim insim, IS_RST RST)
+        {
+            RaceFinished = false;
+            ScoreboardTick = 0;
+
+            #region - delete buttons from 25-134 -
+            deleteBtn(255, 255, true, 25);
+            deleteBtn(255, 255, true, 26);
+            deleteBtn(255, 255, true, 27);
+            deleteBtn(255, 255, true, 28);
+            deleteBtn(255, 255, true, 29);
+            deleteBtn(255, 255, true, 30);
+            deleteBtn(255, 255, true, 31);
+            deleteBtn(255, 255, true, 32);
+            deleteBtn(255, 255, true, 33);
+            deleteBtn(255, 255, true, 34);
+            deleteBtn(255, 255, true, 35);
+            deleteBtn(255, 255, true, 36);
+            deleteBtn(255, 255, true, 37);
+            deleteBtn(255, 255, true, 38);
+            deleteBtn(255, 255, true, 39);
+            deleteBtn(255, 255, true, 40);
+            deleteBtn(255, 255, true, 41);
+            deleteBtn(255, 255, true, 42);
+            deleteBtn(255, 255, true, 43);
+            deleteBtn(255, 255, true, 44);
+            deleteBtn(255, 255, true, 45);
+            deleteBtn(255, 255, true, 46);
+            deleteBtn(255, 255, true, 47);
+            deleteBtn(255, 255, true, 48);
+            deleteBtn(255, 255, true, 49);
+            deleteBtn(255, 255, true, 50);
+            deleteBtn(255, 255, true, 51);
+            deleteBtn(255, 255, true, 52);
+            deleteBtn(255, 255, true, 53);
+            deleteBtn(255, 255, true, 54);
+            deleteBtn(255, 255, true, 55);
+            deleteBtn(255, 255, true, 56);
+            deleteBtn(255, 255, true, 57);
+            deleteBtn(255, 255, true, 58);
+            deleteBtn(255, 255, true, 59);
+            deleteBtn(255, 255, true, 50);
+            deleteBtn(255, 255, true, 51);
+            deleteBtn(255, 255, true, 52);
+            deleteBtn(255, 255, true, 53);
+            deleteBtn(255, 255, true, 54);
+            deleteBtn(255, 255, true, 55);
+            deleteBtn(255, 255, true, 56);
+            deleteBtn(255, 255, true, 57);
+            deleteBtn(255, 255, true, 58);
+            deleteBtn(255, 255, true, 59);
+            deleteBtn(255, 255, true, 60);
+            deleteBtn(255, 255, true, 61);
+            deleteBtn(255, 255, true, 62);
+            deleteBtn(255, 255, true, 63);
+            deleteBtn(255, 255, true, 64);
+            deleteBtn(255, 255, true, 65);
+            deleteBtn(255, 255, true, 66);
+            deleteBtn(255, 255, true, 67);
+            deleteBtn(255, 255, true, 68);
+            deleteBtn(255, 255, true, 69);
+            deleteBtn(255, 255, true, 70);
+            deleteBtn(255, 255, true, 71);
+            deleteBtn(255, 255, true, 72);
+            deleteBtn(255, 255, true, 73);
+            deleteBtn(255, 255, true, 74);
+            deleteBtn(255, 255, true, 75);
+            deleteBtn(255, 255, true, 76);
+            deleteBtn(255, 255, true, 77);
+            deleteBtn(255, 255, true, 78);
+            deleteBtn(255, 255, true, 79);
+            deleteBtn(255, 255, true, 80);
+            deleteBtn(255, 255, true, 81);
+            deleteBtn(255, 255, true, 82);
+            deleteBtn(255, 255, true, 83);
+            deleteBtn(255, 255, true, 84);
+            deleteBtn(255, 255, true, 85);
+            deleteBtn(255, 255, true, 86);
+            deleteBtn(255, 255, true, 87);
+            deleteBtn(255, 255, true, 88);
+            deleteBtn(255, 255, true, 89);
+            deleteBtn(255, 255, true, 90);
+            deleteBtn(255, 255, true, 91);
+            deleteBtn(255, 255, true, 92);
+            deleteBtn(255, 255, true, 93);
+            deleteBtn(255, 255, true, 94);
+            deleteBtn(255, 255, true, 95);
+            deleteBtn(255, 255, true, 96);
+            deleteBtn(255, 255, true, 97);
+            deleteBtn(255, 255, true, 98);
+            deleteBtn(255, 255, true, 99);
+            deleteBtn(255, 255, true, 100);
+            deleteBtn(255, 255, true, 101);
+            deleteBtn(255, 255, true, 102);
+            deleteBtn(255, 255, true, 103);
+            deleteBtn(255, 255, true, 104);
+            deleteBtn(255, 255, true, 105);
+            deleteBtn(255, 255, true, 106);
+            deleteBtn(255, 255, true, 107);
+            deleteBtn(255, 255, true, 108);
+            deleteBtn(255, 255, true, 109);
+            deleteBtn(255, 255, true, 110);
+            deleteBtn(255, 255, true, 111);
+            deleteBtn(255, 255, true, 112);
+            deleteBtn(255, 255, true, 113);
+            deleteBtn(255, 255, true, 114);
+            deleteBtn(255, 255, true, 115);
+            deleteBtn(255, 255, true, 116);
+            deleteBtn(255, 255, true, 117);
+            deleteBtn(255, 255, true, 118);
+            deleteBtn(255, 255, true, 119);
+            deleteBtn(255, 255, true, 120);
+            deleteBtn(255, 255, true, 121);
+            deleteBtn(255, 255, true, 122);
+            deleteBtn(255, 255, true, 123);
+            deleteBtn(255, 255, true, 124);
+            deleteBtn(255, 255, true, 125);
+            deleteBtn(255, 255, true, 126);
+            deleteBtn(255, 255, true, 127);
+            deleteBtn(255, 255, true, 128);
+            deleteBtn(255, 255, true, 129);
+            deleteBtn(255, 255, true, 130);
+            deleteBtn(255, 255, true, 131);
+            deleteBtn(255, 255, true, 132);
+            deleteBtn(255, 255, true, 133);
+            deleteBtn(255, 255, true, 134);
+            #endregion
         }
 
 
@@ -877,43 +1010,53 @@ _connections[conn.UCID].LapTime.Milliseconds.ToString().Remove(0, 1)), conn.UNam
             {
                 Connections CurrentConnection = GetConnection(RES.PLID);
 
-                if (CurrentConnection.SentMSG == false)
+                if (PointSystem == true)
                 {
-                    if (RES.ResultNum == 0)
+                    if (CurrentConnection.SentMSG == false)
                     {
-                        // insim.Send(255, "" + _connections[CurrentConnection.UCID].PName + " ^8finished 1st!");
-                        CurrentConnection.points += Convert.ToInt32(onepts);
-                        
-                        if (Convert.ToInt32(onepts) != 0)
+                        if (RES.ResultNum == 0)
                         {
-                            insim.Send(255, "^7" + CurrentConnection.PName + " ^8earned ^2" + Convert.ToInt32(onepts) + " points");
+                            // insim.Send(255, "" + _connections[CurrentConnection.UCID].PName + " ^8finished 1st!");
+                            CurrentConnection.points += Convert.ToInt32(onepts);
+
+                            if (Convert.ToInt32(onepts) != 0)
+                            {
+                                insim.Send(255, "^7" + CurrentConnection.PName + " ^8earned ^2" + Convert.ToInt32(onepts) + " points");
+                            }
                         }
-                    }
-                    else if (RES.ResultNum == 1)
-                    {
-                        // insim.Send(255, "" + _connections[CurrentConnection.UCID].PName + " ^8finished 2nd!");
-                        CurrentConnection.points += Convert.ToInt32(twopts);
-                        if (Convert.ToInt32(twopts) != 0)
+                        else if (RES.ResultNum == 1)
                         {
-                            insim.Send(255, "^7" + CurrentConnection.PName + " ^8earned ^2" + Convert.ToInt32(twopts) + " points");
+                            // insim.Send(255, "" + _connections[CurrentConnection.UCID].PName + " ^8finished 2nd!");
+                            CurrentConnection.points += Convert.ToInt32(twopts);
+                            if (Convert.ToInt32(twopts) != 0)
+                            {
+                                insim.Send(255, "^7" + CurrentConnection.PName + " ^8earned ^2" + Convert.ToInt32(twopts) + " points");
+                            }
                         }
-                    }
-                    else if (RES.ResultNum == 2)
-                    {
-                        // insim.Send(255, "" + _connections[CurrentConnection.UCID].PName + " ^8finished 2nd!");
-                        CurrentConnection.points += Convert.ToInt32(threepts);
-                        if (Convert.ToInt32(threepts) != 0)
+                        else if (RES.ResultNum == 2)
                         {
-                            insim.Send(255, "^7" + CurrentConnection.PName + " ^8earned ^2" + Convert.ToInt32(threepts) + " points");
+                            // insim.Send(255, "" + _connections[CurrentConnection.UCID].PName + " ^8finished 2nd!");
+                            CurrentConnection.points += Convert.ToInt32(threepts);
+                            if (Convert.ToInt32(threepts) != 0)
+                            {
+                                insim.Send(255, "^7" + CurrentConnection.PName + " ^8earned ^2" + Convert.ToInt32(threepts) + " points");
+                            }
                         }
-                    }
-                    else if (RES.ResultNum == 3)
-                    {
-                        // insim.Send(255, "" + _connections[CurrentConnection.UCID].PName + " ^8finished 2nd!");
-                        CurrentConnection.points += Convert.ToInt32(fourpts);
-                        if (Convert.ToInt32(fourpts) != 0)
+                        else if (RES.ResultNum == 3)
                         {
-                            insim.Send(255, "^7" + CurrentConnection.PName + " ^8earned ^2" + Convert.ToInt32(fourpts) + " points");
+                            // insim.Send(255, "" + _connections[CurrentConnection.UCID].PName + " ^8finished 2nd!");
+                            CurrentConnection.points += Convert.ToInt32(fourpts);
+                            if (Convert.ToInt32(fourpts) != 0)
+                            {
+                                insim.Send(255, "^7" + CurrentConnection.PName + " ^8earned ^2" + Convert.ToInt32(fourpts) + " points");
+                            }
+                        }
+
+
+                        if (RES.ResultNum == _players.Count-1)
+                        {
+                            RaceFinished = true;
+                            ScoreboardTick = 0;                            
                         }
                     }
                 }
@@ -936,7 +1079,7 @@ _connections[conn.UCID].LapTime.Milliseconds.ToString().Remove(0, 1)), conn.UNam
                     ClickID = 1,
                     BStyle = ButtonStyles.ISB_DARK,
                     H = 19,
-                    W = 38,
+                    W = 41,
                     T = 0,
                     L = 100,
                 });
@@ -951,9 +1094,9 @@ _connections[conn.UCID].LapTime.Milliseconds.ToString().Remove(0, 1)), conn.UNam
                         ClickID = 2,
                         BStyle = ButtonStyles.ISB_LEFT,
                         H = 5,
-                        W = 30,
+                        W = 26,
                         T = 1,
-                        L = 100,
+                        L = 101,
                         Text = "^3Distance: ^7" + string.Format("{0:0,0.0}", _connections[UCID].TotalDistance / 1000) + " km"
                     });
                 }
@@ -966,9 +1109,9 @@ _connections[conn.UCID].LapTime.Milliseconds.ToString().Remove(0, 1)), conn.UNam
                         ClickID = 2,
                         BStyle = ButtonStyles.ISB_LEFT,
                         H = 5,
-                        W = 30,
+                        W = 26,
                         T = 1,
-                        L = 100,
+                        L = 101,
                         Text = "^3Distance: ^7" + string.Format("{0:0.0}", _connections[UCID].TotalDistance / 1000) + " km"
                     });
                 }
@@ -980,26 +1123,46 @@ _connections[conn.UCID].LapTime.Milliseconds.ToString().Remove(0, 1)), conn.UNam
                     ClickID = 3,
                     BStyle = ButtonStyles.ISB_LEFT,
                     H = 5,
-                    W = 40,
+                    W = 39,
                     T = 7,
-                    L = 100,
+                    L = 101,
                     Text = "^3Navn: ^8" + _connections[UCID].PName
                 });
 
 
 
-                insim.Send(new IS_BTN
+                if (PointSystem == true)
                 {
-                    UCID = UCID,
-                    ReqI = 4,
-                    ClickID = 4,
-                    BStyle = ButtonStyles.ISB_LEFT,
-                    H = 5,
-                    W = 30,
-                    T = 1,
-                    L = 125,
-                    //Text = "^3Pts: ^7" + _connections[UCID].points
-                });
+                    insim.Send(new IS_BTN
+                    {
+                        UCID = UCID,
+                        ReqI = 4,
+                        ClickID = 4,
+                        BStyle = ButtonStyles.ISB_LEFT,
+                        H = 5,
+                        W = 13,
+                        T = 1,
+                        L = 127,
+                        Text = "^3Pts: ^7" + _connections[UCID].points
+                    });
+                }
+                else
+                {
+                    insim.Send(new IS_BTN
+                    {
+                        UCID = UCID,
+                        ReqI = 4,
+                        ClickID = 4,
+                        BStyle = ButtonStyles.ISB_LEFT,
+                        H = 5,
+                        W = 13,
+                        T = 1,
+                        L = 127,
+                        Text = "^3Pts: ^1Disabled"
+                    });
+                }
+
+
 
                 insim.Send(new IS_BTN
                 {
@@ -1008,9 +1171,9 @@ _connections[conn.UCID].LapTime.Milliseconds.ToString().Remove(0, 1)), conn.UNam
                     ClickID = 5,
                     BStyle = ButtonStyles.ISB_LEFT,
                     H = 5,
-                    W = 40,
+                    W = 39,
                     T = 13,
-                    L = 100,
+                    L = 101,
                     Text = "^3Track: ^7" + TrackHelper.GetFullTrackName(TrackName)
                 });
 

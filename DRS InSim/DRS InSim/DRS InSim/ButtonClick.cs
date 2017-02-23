@@ -36,7 +36,50 @@ namespace DRS_InSim
 
                         break;
 
-                    case 134:
+                    case 39:
+                        if (conn.inAP == true)
+                        {
+                            #region ' Point system on/off '
+                            if (PointSystem == true)
+                            {
+                                insim.Send(new IS_BTN
+                                {
+                                    UCID = conn.UCID,
+                                    ReqI = 39,
+                                    ClickID = 39,
+                                    BStyle = ButtonStyles.ISB_LIGHT | ButtonStyles.ISB_CLICK,
+                                    H = 4,
+                                    W = 8,
+                                    T = 92, // up to down
+                                    L = 102, // left to right
+                                    Text = "^1Disabled"
+                                });
+
+                                PointSystem = false;
+                            }
+                            else
+                            {
+                                insim.Send(new IS_BTN
+                                {
+                                    UCID = conn.UCID,
+                                    ReqI = 39,
+                                    ClickID = 39,
+                                    BStyle = ButtonStyles.ISB_LIGHT | ButtonStyles.ISB_CLICK,
+                                    H = 4,
+                                    W = 8,
+                                    T = 92, // up to down
+                                    L = 102, // left to right
+                                    Text = "^2Enabled"
+                                });
+
+                                PointSystem = true;
+                            }
+                            #endregion
+                        }
+
+                        break;
+
+                    /*case 134:
 
                         if (conn.inStats == true)
                         {
@@ -163,11 +206,10 @@ namespace DRS_InSim
                             deleteBtn(BTC.UCID, BTC.ReqI, true, 132);
                             deleteBtn(BTC.UCID, BTC.ReqI, true, 133);
                             deleteBtn(BTC.UCID, BTC.ReqI, true, 134);
-                            conn.stage = 0;
                             #endregion
                         }
 
-                        break;
+                        break;*/
 
                     case 36:
                         if (conn.inAP == true)
@@ -234,21 +276,6 @@ namespace DRS_InSim
                             deleteBtn(BTC.UCID, BTC.ReqI, true, 135);
                             conn.inAP = false;
                         }
-
-                        break;
-
-                    case 39:
-
-                        //  A single line for simple packets
-                        insim.Send(new IS_MST { Msg = "/axlist" });
-
-                        break;
-
-                    case 41:
-
-                        break;
-
-                    case 43:
 
                         break;
                 }

@@ -1,0 +1,8 @@
+2/24/2017 12:08:32 AM: [18] ole(prolek3) NPL - Exception: System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at DRS_InSim.Form1.UpdateGui(Byte UCID, Boolean main) in C:\Users\Peter Pan\Documents\GitHub\DRS-Repo\DRS InSim\DRS InSim\DRS InSim\Form1.cs:line 1088
+   at DRS_InSim.Form1.MessageReceived(InSim insim, IS_MSO mso) in C:\Users\Peter Pan\Documents\GitHub\DRS-Repo\DRS InSim\DRS InSim\DRS InSim\Commands.cs:line 335
+2/24/2017 12:08:42 AM: [18] ole(prolek3) NPL - Exception: System.Collections.Generic.KeyNotFoundException: The given key was not present in the dictionary.
+   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   at DRS_InSim.Form1.UpdateGui(Byte UCID, Boolean main) in C:\Users\Peter Pan\Documents\GitHub\DRS-Repo\DRS InSim\DRS InSim\DRS InSim\Form1.cs:line 1088
+   at DRS_InSim.Form1.MessageReceived(InSim insim, IS_MSO mso) in C:\Users\Peter Pan\Documents\GitHub\DRS-Repo\DRS InSim\DRS InSim\DRS InSim\Commands.cs:line 344
